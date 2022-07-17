@@ -140,85 +140,85 @@ public class Main {
         String text;
         Scanner scanner = new Scanner(System.in);
 //        for (String arg : args) {
-//        String mode = scanner.next();
-//        if (mode.equals("encode")) {
-//            inputFile = "./send.txt";
-//            input = new File(inputFile);
-//            text = "";
-//            try (Scanner fileScanner = new Scanner(input)) {
-//                while (fileScanner.hasNext()) {
-//                    text = fileScanner.nextLine();
-//                }
-//            } catch (FileNotFoundException e) {
-//                System.out.println("No file found: " + inputFile);
-//            }
-//
-//            output = new File("encoded.txt");
-//            if (!output.exists()) {
-//                try {
-//                    output.createNewFile();
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//            try (PrintWriter printWriter = new PrintWriter(output)) {
-//                printWriter.print(encode(t2B(text)));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//        } else if (mode.equals("send")) {
-//            inputFile = "./encoded.txt";
-//            input = new File(inputFile);
-//            text = "";
-//            try (Scanner fileScanner = new Scanner(input)) {
-//                while (fileScanner.hasNext()) {
-//                    text = fileScanner.nextLine();
-//                }
-//            } catch (FileNotFoundException e) {
-//                System.out.println("No file found: " + inputFile);
-//            }
-//
-//            output = new File("received.txt");
-//            if (!output.exists()) {
-//                try {
-//                    output.createNewFile();
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//            try (PrintWriter printWriter = new PrintWriter(output)) {
-//                printWriter.print(introduceErrors(text));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+        String mode = scanner.next();
+        if (mode.equals("encode")) {
+            inputFile = "./send.txt";
+            input = new File(inputFile);
+            text = "";
+            try (Scanner fileScanner = new Scanner(input)) {
+                while (fileScanner.hasNext()) {
+                    text = fileScanner.nextLine();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("No file found: " + inputFile);
+            }
+
+            output = new File("encoded.txt");
+            if (!output.exists()) {
+                try {
+                    output.createNewFile();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            try (PrintWriter printWriter = new PrintWriter(output)) {
+                printWriter.print(encode(t2B(text)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else if (mode.equals("send")) {
+            inputFile = "./encoded.txt";
+            input = new File(inputFile);
+            text = "";
+            try (Scanner fileScanner = new Scanner(input)) {
+                while (fileScanner.hasNext()) {
+                    text = fileScanner.nextLine();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("No file found: " + inputFile);
+            }
+
+            output = new File("received.txt");
+            if (!output.exists()) {
+                try {
+                    output.createNewFile();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            try (PrintWriter printWriter = new PrintWriter(output)) {
+                printWriter.print(introduceErrors(text));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (mode.equals("decode")) {
+            inputFile = "./received.txt";
+            input = new File(inputFile);
+            text = "";
+            try (Scanner fileScanner = new Scanner(input)) {
+                while (fileScanner.hasNext()) {
+                    text = fileScanner.nextLine();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("No file found: " + inputFile);
+            }
+
+            output = new File("decoded.txt");
+            if (!output.exists()) {
+                try {
+                    output.createNewFile();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            try (PrintWriter printWriter = new PrintWriter(output)) {
+                printWriter.print(decode(text));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 //        }
-//        else if (mode.equals("decode")) {
-//            inputFile = "./received.txt";
-//            input = new File(inputFile);
-//            text = "";
-//            try (Scanner fileScanner = new Scanner(input)) {
-//                while (fileScanner.hasNext()) {
-//                    text = fileScanner.nextLine();
-//                }
-//            } catch (FileNotFoundException e) {
-//                System.out.println("No file found: " + inputFile);
-//            }
-//
-//            output = new File("decoded.txt");
-//            if (!output.exists()) {
-//                try {
-//                    output.createNewFile();
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//            try (PrintWriter printWriter = new PrintWriter(output)) {
-//                printWriter.print(decode(text));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-        System.out.println(encode(t2B("Test")));
     }
 }
